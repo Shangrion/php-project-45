@@ -14,5 +14,8 @@
             "email": "lvdmyta6op@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "bin": [
+        "bin/brain-games"
+    ]
 }
