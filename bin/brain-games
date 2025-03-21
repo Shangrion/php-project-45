@@ -1,3 +1,10 @@
 #!/usr/bin/env php
 <?php
-echo "php bin/brain-games.php\nWelcome to the Brain Games!";
+
+namespace Brain\Games;
+
+require_once __DIR__ . '/../src/Cli.php';
+
+use BrainGames\Cli;
+
+Cli\greeting_user();
