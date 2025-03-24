@@ -1,0 +1,57 @@
+#!/usr/bin/env php
+
+<?php
+
+use function cli\prompt;
+
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
+
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
+}
+
+require_once __DIR__ . '/../src/Cli.php';
+use function BrainGames\Cli\greeting_user;
+
+#Приветствие
+$name = greeting_user();
+
+#Подщет ответов
+$correctAnswers = 0;
+$totalQuestions = 3;
+
+#Начало игры
+echo 'Answer "yes" if the number is even, otherwise answer "no".' . "\n";
+
+for ($i = 0; $i < $totalQuestions; $i++) {
+    #Генерация случайного числа
+    $digit = rand(1, 100);
+    $check = ($digit % 2 === 0) ? "yes" : "no";
+
+    echo "Question: {$digit}" . "\n";
+
+    #Получение ответа от пользователя
+    $answer = prompt("Your answer");
+
+    #Проверка корректности ответа
+    if ($answer !== "yes" && $answer !== "no") {
+        echo "Incorrect input\n";
+    } else {
+        if ($answer === $check) {
+            echo "Correct!\n";
+            $correctAnswers++;
+        } else {
+            echo "Incorrect.\n";
+        }
+    }
+}
+
+#Подведение итогов
+if ($correctAnswers === $totalQuestions) {
+    echo "Congratulations, {$name}!\n";
+} else {
+    echo "Close! Maybe again, {$name}?\n";
+}
