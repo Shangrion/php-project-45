@@ -21,8 +21,8 @@ function getInstanceAndResult()
 }
 
 // Функция для brain-gcd
-function gcdDigitsAndAnswer() 
-{   
+function gcdDigitsAndAnswer()
+{
     $digit1 = rand(0, 100);
     $digit2 = rand(0, 100);
     $result = [];
@@ -39,21 +39,21 @@ function gcdDigitsAndAnswer()
 // Функция для brain-progression
 function progressDigitsAndAnswer()
 {
-    $digit_start = rand(0, 100);
-    $digit_step = rand(0, 5);
+    $digitStart = rand(0, 100);
+    $digitStep = rand(0, 5);
     $allDigits = [];
-    for ($i = 0; $i < 10; $i++){
-        $allDigits[] = $digit_start;
-        $digit_start += $digit_step;
+    for ($i = 0; $i < 10; $i++) {
+        $allDigits[] = $digitStart;
+        $digitStart += $digitStep;
     }
     $key = array_rand($allDigits);
-    $miss_digit = $allDigits[$key];
+    $missDigit = $allDigits[$key];
     $allDigits[$key] = "..";
     $str_digits = "";
     foreach ($allDigits as $digit) {
         $str_digits .= $digit . " ";
     }
-    $result = [$str_digits, $miss_digit];
+    $result = [$str_digits, $missDigit];
     return $result;
 }
 

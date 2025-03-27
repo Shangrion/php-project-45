@@ -6,9 +6,14 @@
 
 ## Порядок установки
 
-* С помощью терминала зайдите в дирректорию, куда вы хотите распаковать Brain Games и введите в нём "git clone git@github.com:Shangrion/php-project-45.git" (без ковычек)
+* С помощью терминала зайдите в дирректорию, куда вы хотите распаковать Brain Games и введите в нём 'git clone git@github.com:Shangrion/php-project-45.git' (без ковычек)
   Либо для нативной (визуальный интерфейс) установки воспользуйтесь распаковкой через зип файл. Ссылка на zip -> https://github.com/Shangrion/php-project-45/archive/refs/heads/main.zip
 * Далее, уже только с помощью терминала войдя в папку с проектом введите "make install"
+* При помощи команды 'make -h' или make '-help' ознакомьтесь с доступными командами.
+
+## Описание игр
+
+* Чётное ли число.
 ### Asciinema Brain-Even
 https://asciinema.org/a/dQcuJLwzZJP0I2Yn1rn8z9Aq1
 ### Asciinema Brain-Calc
