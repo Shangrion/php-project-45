@@ -3,10 +3,10 @@
 <?php
 
 #юзаем функцию из cli
-use function BrainGames\Cli\greeting_user;
+use function BrainGames\AddLogic\checkAnswer;
+use function BrainGames\AddLogic\checkCorrect;
+use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
-use function BrainGames\AddLogic\check_answer;
-use function BrainGames\AddLogic\check_correct;
 
 #подключение автозагрузки глобал || локал
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
@@ -19,7 +19,7 @@ if (file_exists($autoloadPath1)) {
 }
 
 #Приветствие
-$name = greeting_user();
+$name = greetingUser();
 echo 'Answer "yes" if the number is even, otherwise answer "no".' . "\n";
 #Логика игры
 $correctAnswers = 0;
@@ -28,9 +28,9 @@ for ($i = 0; $i < 3; $i++) {
     $result = ($digit % 2 === 0) ? "yes" : "no";
     echo "Question: {$digit}" . "\n";
     $answer = prompt("Your answer");
-    $correctAnswers += check_answer($answer,$result);
+    $correctAnswers += checkAnswer($answer,$result);
     if ($correctAnswers === $i) {
         break;
     }
 }
-check_correct ($correctAnswers, 3, $name);
+checkCorrect($correctAnswers, 3, $name);

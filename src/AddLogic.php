@@ -1,12 +1,12 @@
 <?php
 
-#Обозначение пространстова-имён
+// Обозначение пространстова-имён
 namespace BrainGames\AddLogic;
 
 //ФУНКЦИИ ДЛЯ ИГР
 
-#Функция для получения строки примера и его результата в массиве для brain-calc
-function get_instance_and_result()
+// Функция для получения строки примера и его результата в массиве для brain-calc
+function getInstanceAndResult()
 {
     $instens_result = [];
     $digit1 = random_int(0, 100);
@@ -20,11 +20,11 @@ function get_instance_and_result()
     return $instens_result;
 }
 
-#Функция для brain-gcd
-function gcd_digits_and_answer() 
+// Функция для brain-gcd
+function gcdDigitsAndAnswer() 
 {   
-    $digit1 = rand(0,100);
-    $digit2 = rand(0,100);
+    $digit1 = rand(0, 100);
+    $digit2 = rand(0, 100);
     $result = [];
     $result[] = "{$digit1} {$digit2}";
     while ($digit2 !== 0) {
@@ -36,11 +36,11 @@ function gcd_digits_and_answer()
     return $result;
 }
 
-#Функция для brain-progression
-function progress_digits_and_answer()
+// Функция для brain-progression
+function progressDigitsAndAnswer()
 {
-    $digit_start = rand(0,100);
-    $digit_step = rand(0,5);
+    $digit_start = rand(0, 100);
+    $digit_step = rand(0, 5);
     $all_digits = [];
     for ($i = 0; $i < 10; $i++){
         $all_digits[] = $digit_start;
@@ -57,12 +57,12 @@ function progress_digits_and_answer()
     return $result;
 }
 
-#Функция для brain-prime
-function get_digit_chek_prime()
+// Функция для brain-prime
+function getDigitChekPrime()
 {
     $answer = "yes";
-    $digit = rand(0,100);
-    if ($digit < 2){
+    $digit = rand(0, 100);
+    if ($digit < 2) {
         $answer = "no";
     } else {
         for ($i = 2; $i <= sqrt($digit); $i++) {
@@ -77,8 +77,8 @@ function get_digit_chek_prime()
 
 //ОБЩИЕ ФУНКЦИИ
 
-#Проверка корректности ответа
-function check_answer($answer, $correct)
+// Проверка корректности ответа
+function checkAnswer($answer, $correct)
 {
     if ($answer != $correct) {
         echo  "'{$answer}' is wrong answer ;(. Correct answer was '{$correct}'." . "\n";
@@ -89,8 +89,8 @@ function check_answer($answer, $correct)
     }
 }
 
-#Подведение итогов
-function check_correct($correctAnswers, $totalQuestions, $name)
+// Подведение итогов
+function checkCorrect($correctAnswers, $totalQuestions, $name)
 {
     if ($correctAnswers === $totalQuestions) {
         echo "Congratulations, {$name}!\n";

@@ -1,14 +1,14 @@
 <?php
 
-#обозначение пространства-имён
+// обозначение пространства-имён
 namespace BrainGames\Cli;
 
-#подключение cli(мини-фреймворк)
+// подключение cli(мини-фреймворк)
 use function cli\line;
 use function cli\prompt;
 
-#функция приветствует юзера и возвращает его имя
-function greeting_user()
+// функция приветствует юзера и возвращает его имя
+function greetingUser()
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');

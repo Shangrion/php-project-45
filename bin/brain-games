@@ -3,7 +3,7 @@
 <?php
 
 #использование функции
-use function BrainGames\Cli\greeting_user;
+use function BrainGames\Cli\greetingUser;
 
 #подключение автозагрузки глобал || локал
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
@@ -17,4 +17,4 @@ if (file_exists($autoloadPath1)) {
 }
 
 #ход программыы
-greeting_user();
+greetingUser();

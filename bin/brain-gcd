@@ -3,10 +3,10 @@
 <?php
 
 #юзаем функцию из Cli и AddLogic
-use function BrainGames\AddLogic\check_answer;
-use function BrainGames\AddLogic\check_correct;
-use function BrainGames\AddLogic\gcd_digits_and_answer;
-use function BrainGames\Cli\greeting_user;
+use function BrainGames\AddLogic\gcdDigitsAndAnswer;
+use function BrainGames\AddLogic\checkAnswer;
+use function BrainGames\AddLogic\checkCorrect;
+use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
 
 #подключение автозагрузки глобал || локал
@@ -20,17 +20,17 @@ if (file_exists($autoloadPath1)) {
 }
 
 #Приветствие
-$name = greeting_user();
+$name = greetingUser();
 echo 'Find the greatest common divisor of given numbers.' . "\n";
 #Логика игры
 $correctAnswers = 0;
 for ($i = 0; $i < 3; $i++) {
-    [$digits, $result] = gcd_digits_and_answer();
+    [$digits, $result] = gcdDigitsAndAnswer();
     echo "Question: {$digits}" . "\n";
     $answer = prompt("Your answer");
-    $correctAnswers += check_answer($answer, $result);
+    $correctAnswers += checkAnswer($answer, $result);
     if ($correctAnswers === $i) {
         break;
     }
 }
-check_correct ($correctAnswers, 3, $name);
+checkCorrect($correctAnswers, 3, $name);
