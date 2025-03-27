@@ -55,11 +55,24 @@ function progress_digits_and_answer()
     }
     $result = [$str_digits, $miss_digit];
     return $result;
-    
+}
 
-
-
-
+#Функция для brain-prime
+function get_digit_chek_prime()
+{
+    $answer = "yes";
+    $digit = rand(0,100);
+    if ($digit < 2){
+        $answer = "no";
+    } else {
+        for ($i = 2; $i <= sqrt($digit); $i++) {
+            if ($digit % $i == 0) {
+                $answer = "no";
+            }
+        }
+    }
+    $result = [$digit, $answer];
+    return $result;
 }
 
 //ОБЩИЕ ФУНКЦИИ

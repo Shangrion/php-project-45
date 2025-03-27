@@ -32,3 +32,7 @@ brain-gcd:
 #запускает игру "Арифметическая прогрессия"
 brain-progression:
 	./bin/brain-progression
+
+#запускает игру "Простое ли число"
+brain-prime:
+	./bin/brain-prime

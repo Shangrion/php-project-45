@@ -6,7 +6,9 @@
 https://asciinema.org/a/dQcuJLwzZJP0I2Yn1rn8z9Aq1
 ### Asciinema Brain-Calc
 https://asciinema.org/a/cSfgS5OREKouO6cGagLXaSmD3
-### Asciinema Brain-gcd
+### Asciinema Brain-Gcd
 https://asciinema.org/a/bgtwCEhrhYPfUUt7q8DKUM7n1
-### Asciinema Brain-progression
+### Asciinema Brain-Progression
 https://asciinema.org/a/NlkCJNGuW5VbXhleH9G7FlS9Z
+### Asciinema Brain-Prime
+https://asciinema.org/a/kmhx0gXKlh0yeUbEXBBRaLegZ
