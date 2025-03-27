@@ -95,6 +95,6 @@ function check_correct($correctAnswers, $totalQuestions, $name)
     if ($correctAnswers === $totalQuestions) {
         echo "Congratulations, {$name}!\n";
     } else {
-        echo "Close! Maybe again, {$name}?\n";
+        echo "Let's try again, {$name}?\n";
     }
 }
