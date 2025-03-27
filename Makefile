@@ -21,6 +21,10 @@ lint:
 brain-even:
 	./bin/brain-even
 
-#комент
+#запускает игру "калькулятор"
 brain-calc:
 	./bin/brain-calc
+
+#запускает игру "НОД"
+brain-gcd:
+	./bin/brain-gcd
