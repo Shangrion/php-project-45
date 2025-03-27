@@ -2,11 +2,12 @@
 
 <?php
 
-#юзаем функцию из cli
-use function BrainGames\Cli\greeting_user;
-use function cli\prompt;
+#юзаем функцию из Cli и AddLogic
+use function BrainGames\AddLogic\get_instance_and_result;
 use function BrainGames\AddLogic\check_answer;
 use function BrainGames\AddLogic\check_correct;
+use function BrainGames\Cli\greeting_user;
+use function cli\prompt;
 
 #подключение автозагрузки глобал || локал
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
@@ -20,14 +21,12 @@ if (file_exists($autoloadPath1)) {
 
 #Приветствие
 $name = greeting_user();
-echo 'Answer "yes" if the number is even, otherwise answer "no".' . "\n";
-#Логика игры
+echo 'What is the result of the expression?' . "\n";
 $correctAnswers = 0;
 for ($i = 0; $i < 3; $i++) {
-    $digit = rand(1, 100);
-    $result = ($digit % 2 === 0) ? "yes" : "no";
-    echo "Question: {$digit}" . "\n";
+    [$instance, $result] = get_instance_and_result();
+    echo "Question: {$instance}" . "\n";
     $answer = prompt("Your answer");
-    $correctAnswers += check_answer($answer,$result);
+    $correctAnswers += check_answer($answer, $result);    
 }
 check_correct ($correctAnswers, 3, $name);
