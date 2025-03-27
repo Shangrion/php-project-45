@@ -19,6 +19,7 @@ function get_instance_and_result()
     $instens_result[] = $result;
     return $instens_result;
 }
+
 #Функция для brain-gcd
 function gcd_digits_and_answer() 
 {   
@@ -33,6 +34,32 @@ function gcd_digits_and_answer()
     }
     $result[] = $digit1;
     return $result;
+}
+
+#Функция для brain-progression
+function progress_digits_and_answer()
+{
+    $digit_start = rand(0,100);
+    $digit_step = rand(0,5);
+    $all_digits = [];
+    for ($i = 0; $i < 10; $i++){
+        $all_digits[] = $digit_start;
+        $digit_start += $digit_step;
+    }
+    $key = array_rand($all_digits);
+    $miss_digit = $all_digits[$key];
+    $all_digits[$key] = "..";
+    $str_digits = "";
+    foreach ($all_digits as $digit) {
+        $str_digits .= $digit . " ";
+    }
+    $result = [$str_digits, $miss_digit];
+    return $result;
+    
+
+
+
+
 }
 
 //ОБЩИЕ ФУНКЦИИ

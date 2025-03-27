@@ -28,3 +28,7 @@ brain-calc:
 #запускает игру "НОД"
 brain-gcd:
 	./bin/brain-gcd
+
+#запускает игру "Арифметическая прогрессия"
+brain-progression:
+	./bin/brain-progression
