@@ -49,11 +49,11 @@ function progressDigitsAndAnswer()
     $key = array_rand($allDigits);
     $missDigit = $allDigits[$key];
     $allDigits[$key] = "..";
-    $str_digits = "";
+    $strDigits = "";
     foreach ($allDigits as $digit) {
-        $str_digits .= $digit . " ";
+        $strDigits .= $digit . " ";
     }
-    $result = [$str_digits, $missDigit];
+    $result = [$strDigits, $missDigit];
     return $result;
 }
 
