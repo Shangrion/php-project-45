@@ -78,7 +78,7 @@ function getDigitChekPrime()
 //ОБЩИЕ ФУНКЦИИ
 
 // Проверка корректности ответа
-function checkAnswer($answer, $correct)
+function checkAnswer(string|int $answer, string|int $correct)
 {
     if ($answer != $correct) {
         echo  "'{$answer}' is wrong answer ;(. Correct answer was '{$correct}'." . "\n";
@@ -90,7 +90,7 @@ function checkAnswer($answer, $correct)
 }
 
 // Подведение итогов
-function checkCorrect($correctAnswers, $totalQuestions, $name)
+function checkCorrect(string|int $correctAnswers, string|int $totalQuestions, string|int $name)
 {
     if ($correctAnswers === $totalQuestions) {
         echo "Congratulations, {$name}!\n";
