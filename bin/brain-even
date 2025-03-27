@@ -29,5 +29,8 @@ for ($i = 0; $i < 3; $i++) {
     echo "Question: {$digit}" . "\n";
     $answer = prompt("Your answer");
     $correctAnswers += check_answer($answer,$result);
+    if ($correctAnswers === $i) {
+        break;
+    }
 }
 check_correct ($correctAnswers, 3, $name);

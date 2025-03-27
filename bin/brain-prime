@@ -28,6 +28,9 @@ for ($i = 0; $i < 3; $i++) {
     [$digits, $result] = get_digit_chek_prime();
     echo "Question: {$digits}" . "\n";
     $answer = prompt("Your answer");
-    $correctAnswers += check_answer($answer, $result);    
+    $correctAnswers += check_answer($answer, $result);
+    if ($correctAnswers === $i) {
+        break;
+    }
 }
 check_correct ($correctAnswers, 3, $name);
