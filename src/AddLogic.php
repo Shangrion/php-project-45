@@ -8,13 +8,13 @@ namespace BrainGames\AddLogic;
 // Функция для получения строки примера и его результата в массиве для brain-calc
 function getInstanceAndResult()
 {
-    $instens_result = [];
+    $instensResult = [];
     $digit1 = random_int(0, 100);
     $digit2 = random_int(0, 100);
     $operators = ['*', '-', '+'];
     $operator = $operators[array_rand($operators)];
     $instens = "{$digit1} {$operator} {$digit2}";
-    $instens_result[] = $instens;
+    $instensResult[] = $instens;
     $result = eval("return $digit1 $operator $digit2;");
     $instensResult[] = $result;
     return $instensResult;
