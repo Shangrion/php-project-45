@@ -36,3 +36,7 @@ brain-progression:
 #запускает игру "Простое ли число"
 brain-prime:
 	./bin/brain-prime
+
+#хелп команда для игр
+brain-help:
+	./bin/brain-help

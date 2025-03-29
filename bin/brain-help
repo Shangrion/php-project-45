@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+
+<?php
+
+echo "СПИСОК КОМАНД ДЛЯ ИГР:\n";
+echo "'make brain-even' - Проверка на чётность.\n";
+echo "'make brain-gcd' - НОД.\n";
+echo "'make brain-prime' - Простое ли число?\n";
+echo "'make brain-progression' - Арифметическая прогрессия.\n";
+echo "'make brain-calc' - Калькулятор.\n";
