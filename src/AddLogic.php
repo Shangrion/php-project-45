@@ -32,9 +32,8 @@ function checkCorrect(string|int $correctAnswers, string|int $totalQuestions, st
 ##ФУНКЦИИ ДЛЯ БИНАРНИКОВ
 
 //ПРОГРЕССИЯ
-function brainProgression()
-{
-    function progressDigitsAndAnswer()
+
+function progressDigitsAndAnswer()
     {
         $digitStart = rand(0, 100);
         $digitStep = rand(0, 5);
@@ -57,7 +56,8 @@ function brainProgression()
         $result = [$strDigits, $missDigit];
         return $result;
     }
-
+function brainProgression()
+{
     $name = greetingUser();
     echo 'What number is missing in the progression?' . "\n";
     $correctAnswers = 0;
@@ -77,9 +77,7 @@ function brainProgression()
 }
 
 //ПРОСТОЕ ЛИ ЧИСЛО
-function brainPrime()
-{
-    function getDigitChekPrime()
+function getDigitChekPrime()
     {
         $answer = "yes";
         $digit = rand(0, 100);
@@ -96,6 +94,8 @@ function brainPrime()
         return $result;
     }
 
+function brainPrime()
+{
     $name = greetingUser();
     echo 'Answer "yes" if given number is prime. Otherwise answer "no".' . "\n";
     $correctAnswers = 0;
@@ -115,9 +115,7 @@ function brainPrime()
 }
 
 //НОД
-function brainGcd()
-{
-    function gcdDigitsAndAnswer()
+function gcdDigitsAndAnswer()
     {
         $digit1 = rand(0, 100);
         $digit2 = rand(0, 100);
@@ -132,6 +130,8 @@ function brainGcd()
         return $result;
     }
 
+function brainGcd()
+{
     $name = greetingUser();
     echo 'Find the greatest common divisor of given numbers.' . "\n";
     $correctAnswers = 0;
@@ -174,22 +174,22 @@ function brainEven()
 }
 
 //КАЛЬКУЛЯТОР
+function getInstanceAndResult()
+{
+    $instensResult = [];
+    $digit1 = random_int(0, 100);
+    $digit2 = random_int(0, 100);
+    $operators = ['*', '-', '+'];
+    $operator = $operators[array_rand($operators)];
+    $instens = "{$digit1} {$operator} {$digit2}";
+    $instensResult[] = $instens;
+    $result = eval("return $digit1 $operator $digit2;");
+    $instensResult[] = $result;
+    return $instensResult;
+}
+
 function brainCalc()
 {
-    function getInstanceAndResult()
-    {
-        $instensResult = [];
-        $digit1 = random_int(0, 100);
-        $digit2 = random_int(0, 100);
-        $operators = ['*', '-', '+'];
-        $operator = $operators[array_rand($operators)];
-        $instens = "{$digit1} {$operator} {$digit2}";
-        $instensResult[] = $instens;
-        $result = eval("return $digit1 $operator $digit2;");
-        $instensResult[] = $result;
-        return $instensResult;
-    }
-
     $name = greetingUser();
     echo 'What is the result of the expression?' . "\n";
     $correctAnswers = 0;
