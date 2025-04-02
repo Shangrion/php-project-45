@@ -36,26 +36,26 @@ function brainProgression()
 {
     function progressDigitsAndAnswer()
     {
-    $digitStart = rand(0, 100);
-    $digitStep = rand(0, 5);
-    $allDigits = [];
+        $digitStart = rand(0, 100);
+        $digitStep = rand(0, 5);
+        $allDigits = [];
 
-    for ($i = 0; $i < 10; $i++) {
-        $allDigits[] = $digitStart;
-        $digitStart += $digitStep;
-    }
+        for ($i = 0; $i < 10; $i++) {
+            $allDigits[] = $digitStart;
+            $digitStart += $digitStep;
+        }
 
-    $key = array_rand($allDigits);
-    $missDigit = $allDigits[$key];
-    $allDigits[$key] = "..";
-    $strDigits = "";
+        $key = array_rand($allDigits);
+        $missDigit = $allDigits[$key];
+        $allDigits[$key] = "..";
+        $strDigits = "";
 
-    foreach ($allDigits as $digit) {
-        $strDigits .= $digit . " ";
-    }
+        foreach ($allDigits as $digit) {
+            $strDigits .= $digit . " ";
+        }
 
-    $result = [$strDigits, $missDigit];
-    return $result;
+        $result = [$strDigits, $missDigit];
+        return $result;
     }
 
     $name = greetingUser();
@@ -67,11 +67,11 @@ function brainProgression()
         echo "Question: {$digits}" . "\n";
         $answer = prompt("Your answer");
 
-        if (checkAnswer($answer,$result) === true) {
+        if (checkAnswer($answer, $result) === true) {
             $correctAnswers++;
-            } else {
-                break;
-            }
+        } else {
+            break;
+        }
     }
     checkCorrect($correctAnswers, 3, $name);
 }
@@ -105,11 +105,11 @@ function brainPrime()
         echo "Question: {$digits}" . "\n";
         $answer = prompt("Your answer");
 
-        if (checkAnswer($answer,$result) === true) {
+        if (checkAnswer($answer, $result) === true) {
             $correctAnswers++;
-            } else {
-                break;
-            }
+        } else {
+            break;
+        }
     }
     checkCorrect($correctAnswers, 3, $name);
 }
@@ -119,17 +119,17 @@ function brainGcd()
 {
     function gcdDigitsAndAnswer()
     {
-    $digit1 = rand(0, 100);
-    $digit2 = rand(0, 100);
-    $result = [];
-    $result[] = "{$digit1} {$digit2}";
-    while ($digit2 !== 0) {
-        $temp = $digit2;
-        $digit2 = $digit1 % $digit2;
-        $digit1 = $temp;
-    }
-    $result[] = $digit1;
-    return $result;
+        $digit1 = rand(0, 100);
+        $digit2 = rand(0, 100);
+        $result = [];
+        $result[] = "{$digit1} {$digit2}";
+        while ($digit2 !== 0) {
+            $temp = $digit2;
+            $digit2 = $digit1 % $digit2;
+            $digit1 = $temp;
+        }
+        $result[] = $digit1;
+        return $result;
     }
 
     $name = greetingUser();
@@ -141,11 +141,11 @@ function brainGcd()
         echo "Question: {$digits}" . "\n";
         $answer = prompt("Your answer");
 
-        if (checkAnswer($answer,$result) === true) {
+        if (checkAnswer($answer, $result) === true) {
             $correctAnswers++;
-            } else {
-                break;
-            }
+        } else {
+            break;
+        }
     }
 
     checkCorrect($correctAnswers, 3, $name);
@@ -163,12 +163,12 @@ function brainEven()
         $result = ($digit % 2 === 0) ? "yes" : "no";
         echo "Question: {$digit}" . "\n";
         $answer = prompt("Your answer");
-        
-        if (checkAnswer($answer,$result) === true) {
+
+        if (checkAnswer($answer, $result) === true) {
             $correctAnswers++;
-            } else {
-                break;
-            }
+        } else {
+            break;
+        }
     }
     checkCorrect($correctAnswers, 3, $name);
 }
@@ -199,11 +199,11 @@ function breinCalc()
         echo "Question: {$instance}" . "\n";
         $answer = prompt("Your answer");
 
-        if (checkAnswer($answer,$result) === true) {
+        if (checkAnswer($answer, $result) === true) {
             $correctAnswers++;
-            } else {
-                break;
-            }
+        } else {
+            break;
+        }
     }
     checkCorrect($correctAnswers, 3, $name);
 }
