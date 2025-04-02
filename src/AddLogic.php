@@ -174,7 +174,7 @@ function brainEven()
 }
 
 //КАЛЬКУЛЯТОР
-function breinCalc()
+function brainCalc()
 {
     function getInstanceAndResult()
     {
