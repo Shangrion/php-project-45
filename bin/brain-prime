@@ -3,11 +3,7 @@
 <?php
 
 #юзаем функцию из Cli и AddLogic
-use function BrainGames\AddLogic\getDigitChekPrime;
-use function BrainGames\AddLogic\checkAnswer;
-use function BrainGames\AddLogic\checkCorrect;
-use function BrainGames\Cli\greetingUser;
-use function cli\prompt;
+use function BrainGames\AddLogic\brainPrime;
 
 #подключение автозагрузки глобал || локал
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
@@ -19,18 +15,4 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-#Приветствие
-$name = greetingUser();
-echo 'Answer "yes" if given number is prime. Otherwise answer "no".' . "\n";
-#Логика игры
-$correctAnswers = 0;
-for ($i = 0; $i < 3; $i++) {
-    [$digits, $result] = getDigitChekPrime();
-    echo "Question: {$digits}" . "\n";
-    $answer = prompt("Your answer");
-    $correctAnswers += checkAnswer($answer, $result);
-    if ($correctAnswers === $i) {
-        break;
-    }
-}
-checkCorrect($correctAnswers, 3, $name);
+brainPrime();
