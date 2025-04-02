@@ -34,28 +34,28 @@ function checkCorrect(string|int $correctAnswers, string|int $totalQuestions, st
 //ПРОГРЕССИЯ
 
 function progressDigitsAndAnswer()
-    {
+{
         $digitStart = rand(0, 100);
         $digitStep = rand(0, 5);
         $allDigits = [];
 
-        for ($i = 0; $i < 10; $i++) {
-            $allDigits[] = $digitStart;
-            $digitStart += $digitStep;
-        }
+    for ($i = 0; $i < 10; $i++) {
+        $allDigits[] = $digitStart;
+        $digitStart += $digitStep;
+    }
 
         $key = array_rand($allDigits);
         $missDigit = $allDigits[$key];
         $allDigits[$key] = "..";
         $strDigits = "";
 
-        foreach ($allDigits as $digit) {
-            $strDigits .= $digit . " ";
-        }
+    foreach ($allDigits as $digit) {
+        $strDigits .= $digit . " ";
+    }
 
         $result = [$strDigits, $missDigit];
         return $result;
-    }
+}
 function brainProgression()
 {
     $name = greetingUser();
@@ -78,21 +78,21 @@ function brainProgression()
 
 //ПРОСТОЕ ЛИ ЧИСЛО
 function getDigitChekPrime()
-    {
+{
         $answer = "yes";
         $digit = rand(0, 100);
-        if ($digit < 2) {
-            $answer = "no";
-        } else {
-            for ($i = 2; $i <= sqrt($digit); $i++) {
-                if ($digit % $i == 0) {
-                    $answer = "no";
-                }
+    if ($digit < 2) {
+        $answer = "no";
+    } else {
+        for ($i = 2; $i <= sqrt($digit); $i++) {
+            if ($digit % $i == 0) {
+                $answer = "no";
             }
         }
+    }
         $result = [$digit, $answer];
         return $result;
-    }
+}
 
 function brainPrime()
 {
@@ -116,19 +116,19 @@ function brainPrime()
 
 //НОД
 function gcdDigitsAndAnswer()
-    {
+{
         $digit1 = rand(0, 100);
         $digit2 = rand(0, 100);
         $result = [];
         $result[] = "{$digit1} {$digit2}";
-        while ($digit2 !== 0) {
-            $temp = $digit2;
-            $digit2 = $digit1 % $digit2;
-            $digit1 = $temp;
-        }
+    while ($digit2 !== 0) {
+        $temp = $digit2;
+        $digit2 = $digit1 % $digit2;
+        $digit1 = $temp;
+    }
         $result[] = $digit1;
         return $result;
-    }
+}
 
 function brainGcd()
 {
