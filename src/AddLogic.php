@@ -33,7 +33,7 @@ function checkCorrect(string|int $correctAnswers, string|int $totalQuestions, st
 
 //ПРОГРЕССИЯ
 
-function progressDigitsAndAnswer()
+function getProgressDigitsAndAnswer()
 {
         $digitStart = rand(0, 100);
         $digitStep = rand(0, 5);
@@ -63,7 +63,7 @@ function brainProgression()
     $correctAnswers = 0;
 
     for ($i = 0; $i < 3; $i++) {
-        [$digits, $result] = progressDigitsAndAnswer();
+        [$digits, $result] = getProgressDigitsAndAnswer();
         echo "Question: {$digits}" . "\n";
         $answer = prompt("Your answer");
 
@@ -115,7 +115,7 @@ function brainPrime()
 }
 
 //НОД
-function gcdDigitsAndAnswer()
+function getGcdDigitsAndAnswer(): array
 {
         $digit1 = rand(0, 100);
         $digit2 = rand(0, 100);
@@ -137,7 +137,7 @@ function brainGcd()
     $correctAnswers = 0;
 
     for ($i = 0; $i < 3; $i++) {
-        [$digits, $result] = gcdDigitsAndAnswer();
+        [$digits, $result] = getGcdDigitsAndAnswer();
         echo "Question: {$digits}" . "\n";
         $answer = prompt("Your answer");
 
