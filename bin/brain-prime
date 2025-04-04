@@ -3,7 +3,7 @@
 <?php
 
 #юзаем функцию из Cli и AddLogic
-use function BrainGames\AddLogic\brainPrime;
+use function BrainGames\BrainPrime\brainPrime;
 
 #подключение автозагрузки глобал || локал
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';

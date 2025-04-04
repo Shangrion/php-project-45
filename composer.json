@@ -6,7 +6,12 @@
     "autoload": {
         "files": [
             "src/Cli.php",
-            "src/AddLogic.php"
+            "src/AddLogic.php",
+            "src/BrainCalc.php",
+            "src/BrainEven.php",
+            "src/BrainGcd.php",
+            "src/BrainPrime.php",
+            "src/BrainProgression.php"
         ]
 
     },
