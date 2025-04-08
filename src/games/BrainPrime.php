@@ -16,7 +16,7 @@ function getDigit(): int
 function chekPrime($digit): bool
 {
     $userAnswer = true;
-    
+
     if ($digit < 2) {
     $userAnswer = false;
     } else {
@@ -32,7 +32,7 @@ function chekPrime($digit): bool
 function runBrainPrime(): void
 {
     $name = greetingUser();
-    line('Answer "yes" if given number is prime. Otherwise userAnswer "no".');
+    line('Answer "yes" if given number is prime. Otherwise answer "no".');
     $correctAnswers = true;
 
     for ($i = 0; $i < 3; $i++) {
