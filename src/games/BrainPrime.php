@@ -6,6 +6,7 @@ use function BrainGames\AddLogic\checkAnswer;
 use function BrainGames\AddLogic\checkCorrect;
 use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
+use function cli\line;
 
 function getDigitChekPrime()
 {
@@ -24,15 +25,15 @@ function getDigitChekPrime()
         return $result;
 }
 
-function brainPrime()
+function runBrainPrime()
 {
     $name = greetingUser();
-    echo 'Answer "yes" if given number is prime. Otherwise answer "no".' . "\n";
+    line('Answer "yes" if given number is prime. Otherwise answer "no".');
     $correctAnswers = 0;
 
     for ($i = 0; $i < 3; $i++) {
         [$digits, $result] = getDigitChekPrime();
-        echo "Question: {$digits}" . "\n";
+        line("Question: {$digits}");
         $answer = prompt("Your answer");
 
         if (checkAnswer($answer, $result) === true) {
@@ -41,5 +42,6 @@ function brainPrime()
             break;
         }
     }
+    
     checkCorrect($correctAnswers, 3, $name);
 }

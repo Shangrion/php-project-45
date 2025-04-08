@@ -7,11 +7,11 @@
         "files": [
             "src/Cli.php",
             "src/AddLogic.php",
-            "src/BrainCalc.php",
-            "src/BrainEven.php",
-            "src/BrainGcd.php",
-            "src/BrainPrime.php",
-            "src/BrainProgression.php"
+            "src/games/BrainCalc.php",
+            "src/games/BrainEven.php",
+            "src/games/BrainGcd.php",
+            "src/games/BrainPrime.php",
+            "src/games/BrainProgression.php"
         ]
 
     },

@@ -6,22 +6,23 @@ use function BrainGames\AddLogic\checkAnswer;
 use function BrainGames\AddLogic\checkCorrect;
 use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
+use function cli\line;
 
 function getProgressDigitsAndAnswer()
 {
-        $digitStart = rand(0, 100);
-        $digitStep = rand(0, 5);
-        $allDigits = [];
+    $digitStart = rand(0, 100);
+    $digitStep = rand(0, 5);
+    $allDigits = [];
 
     for ($i = 0; $i < 10; $i++) {
         $allDigits[] = $digitStart;
         $digitStart += $digitStep;
     }
 
-        $key = array_rand($allDigits);
-        $missDigit = $allDigits[$key];
-        $allDigits[$key] = "..";
-        $strDigits = "";
+    $key = array_rand($allDigits);
+    $missDigit = $allDigits[$key];
+    $allDigits[$key] = "..";
+    $strDigits = "";
 
     foreach ($allDigits as $digit) {
         $strDigits .= $digit . " ";
@@ -30,15 +31,15 @@ function getProgressDigitsAndAnswer()
         $result = [$strDigits, $missDigit];
         return $result;
 }
-function brainProgression()
+function runBrainProgression()
 {
     $name = greetingUser();
-    echo 'What number is missing in the progression?' . "\n";
+    line('What number is missing in the progression?');
     $correctAnswers = 0;
 
     for ($i = 0; $i < 3; $i++) {
         [$digits, $result] = getProgressDigitsAndAnswer();
-        echo "Question: {$digits}" . "\n";
+        line("Question: {$digits}");
         $answer = prompt("Your answer");
 
         if (checkAnswer($answer, $result) === true) {
@@ -47,5 +48,6 @@ function brainProgression()
             break;
         }
     }
+
     checkCorrect($correctAnswers, 3, $name);
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace BrainGames\AddLogic;
+use function cli\line;
 
 ##ОБЩИЕ ФУНКЦИИ
 
@@ -8,10 +9,10 @@ namespace BrainGames\AddLogic;
 function checkAnswer(string|int $answer, string|int $correct)
 {
     if ($answer != $correct) {
-        echo  "'{$answer}' is wrong answer ;(. Correct answer was '{$correct}'." . "\n";
+        line("'{$answer}' is wrong answer ;(. Correct answer was '{$correct}'.");
         return false;
     } else {
-        echo "Correct!\n";
+        line("Correct!");
         return true;
     }
 }
@@ -20,8 +21,8 @@ function checkAnswer(string|int $answer, string|int $correct)
 function checkCorrect(string|int $correctAnswers, string|int $totalQuestions, string|int $name)
 {
     if ($correctAnswers === $totalQuestions) {
-        echo "Congratulations, {$name}!\n";
+        line("Congratulations, {$name}!");
     } else {
-        echo "Let's try again, {$name}!\n";
+        line("Let's try again, {$name}!");
     }
 }

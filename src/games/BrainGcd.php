@@ -6,31 +6,34 @@ use function BrainGames\AddLogic\checkAnswer;
 use function BrainGames\AddLogic\checkCorrect;
 use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
+use function cli\line;
 
 function getGcdDigitsAndAnswer(): array
 {
-        $digit1 = rand(0, 100);
-        $digit2 = rand(0, 100);
-        $result = [];
-        $result[] = "{$digit1} {$digit2}";
+    $digit1 = rand(0, 100);
+    $digit2 = rand(0, 100);
+    $result = [];
+    $result[] = "{$digit1} {$digit2}";
+
     while ($digit2 !== 0) {
         $temp = $digit2;
         $digit2 = $digit1 % $digit2;
         $digit1 = $temp;
     }
-        $result[] = $digit1;
-        return $result;
+
+    $result[] = $digit1;
+    return $result;
 }
 
-function brainGcd()
+function runBrainGcd()
 {
     $name = greetingUser();
-    echo 'Find the greatest common divisor of given numbers.' . "\n";
+    line('Find the greatest common divisor of given numbers.');
     $correctAnswers = 0;
 
     for ($i = 0; $i < 3; $i++) {
         [$digits, $result] = getGcdDigitsAndAnswer();
-        echo "Question: {$digits}" . "\n";
+        line("Question: {$digits}");
         $answer = prompt("Your answer");
 
         if (checkAnswer($answer, $result) === true) {

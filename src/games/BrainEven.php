@@ -6,17 +6,18 @@ use function BrainGames\AddLogic\checkAnswer;
 use function BrainGames\AddLogic\checkCorrect;
 use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
+use function cli\line;
 
-function brainEven()
+function runBrainEven()
 {
     $name = greetingUser();
-    echo 'Answer "yes" if the number is even, otherwise answer "no".' . "\n";
+    line('Answer "yes" if the number is even, otherwise answer "no".');
     $correctAnswers = 0;
 
     for ($i = 0; $i < 3; $i++) {
         $digit = rand(1, 100);
         $result = ($digit % 2 === 0) ? "yes" : "no";
-        echo "Question: {$digit}" . "\n";
+        line("Question: {$digit}");
         $answer = prompt("Your answer");
 
         if (checkAnswer($answer, $result) === true) {
@@ -25,5 +26,6 @@ function brainEven()
             break;
         }
     }
+    
     checkCorrect($correctAnswers, 3, $name);
 }
