@@ -10,13 +10,13 @@ use function cli\line;
 
 function getProgressDigitsAndAnswer(): array
 {
-    $NumberStart = rand(0, 100);
+    $numberStart = rand(0, 100);
     $step = rand(0, 5);
     $allNumbers = [];
 
     for ($i = 0; $i < 10; $i++) {
-        $allNumbers[] = $NumberStart;
-        $NumberStart += $step;
+        $allNumbers[] = $numberStart;
+        $numberStart += $step;
     }
 
     $key = array_rand($allNumbers);
