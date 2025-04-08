@@ -25,7 +25,7 @@ function getGcdDigitsAndAnswer(): array
     return $result;
 }
 
-function runBrainGcd()
+function runBrainGcd(): void
 {
     $name = greetingUser();
     line('Find the greatest common divisor of given numbers.');
