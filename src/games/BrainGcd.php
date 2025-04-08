@@ -8,21 +8,30 @@ use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
 use function cli\line;
 
-function getGcdDigitsAndAnswer(): array
+function getTwoRandomDigits()
 {
     $digit1 = rand(0, 100);
     $digit2 = rand(0, 100);
     $result = [];
-    $result[] = "{$digit1} {$digit2}";
+    $result[] = $digit1;
+    $result[] = $digit2;
+    return $result;
+}
 
-    while ($digit2 !== 0) {
-        $temp = $digit2;
-        $digit2 = $digit1 % $digit2;
-        $digit1 = $temp;
+function convertDigitsToString(array $digits): string
+{
+    return "{$digits[0]} {$digits[1]}";
+}
+
+function getCorrectAnswer(array $digits): int
+{
+    while ($digits[1] !== 0) {
+        $temp = $digits[1];
+        $digits[1] = $digits[0] % $digits[1];
+        $digits[0] = $temp;
     }
 
-    $result[] = $digit1;
-    return $result;
+    return $digits[0];
 }
 
 function runBrainGcd(): void
@@ -32,11 +41,13 @@ function runBrainGcd(): void
     $correctAnswers = true;
 
     for ($i = 0; $i < 3; $i++) {
-        [$digits, $result] = getGcdDigitsAndAnswer();
-        line("Question: {$digits}");
-        $answer = prompt("Your answer");
+        $digits = getTwoRandomDigits();
+        $correctAnswer = getCorrectAnswer($digits);
+        $givenNumbers = convertDigitsToString($digits);
+        line("Question: {$givenNumbers}");
+        $userAnswer = prompt("Your answer");
 
-        if (checkAnswer($answer, $result) !== true) {
+        if (checkAnswer($userAnswer, $correctAnswer) !== true) {
             $correctAnswers = false;
             break;
         }

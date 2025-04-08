@@ -10,25 +10,25 @@ use function cli\line;
 
 function getProgressDigitsAndAnswer(): array
 {
-    $digitStart = rand(0, 100);
-    $digitStep = rand(0, 5);
-    $allDigits = [];
+    $NumberStart = rand(0, 100);
+    $step = rand(0, 5);
+    $allNumbers = [];
 
     for ($i = 0; $i < 10; $i++) {
-        $allDigits[] = $digitStart;
-        $digitStart += $digitStep;
+        $allNumbers[] = $NumberStart;
+        $NumberStart += $step;
     }
 
-    $key = array_rand($allDigits);
-    $missDigit = $allDigits[$key];
-    $allDigits[$key] = "..";
-    $strDigits = "";
+    $key = array_rand($allNumbers);
+    $missNumber = $allNumbers[$key];
+    $allNumbers[$key] = "..";
+    $listOfNumbers = "";
 
-    foreach ($allDigits as $digit) {
-        $strDigits .= $digit . " ";
+    foreach ($allNumbers as $digit) {
+        $listOfNumbers .= $digit . " ";
     }
 
-        $result = [$strDigits, $missDigit];
+        $result = [$listOfNumbers, $missNumber];
         return $result;
 }
 function runBrainProgression(): void
@@ -38,8 +38,8 @@ function runBrainProgression(): void
     $correctAnswers = true;
 
     for ($i = 0; $i < 3; $i++) {
-        [$digits, $result] = getProgressDigitsAndAnswer();
-        line("Question: {$digits}");
+        [$number, $result] = getProgressDigitsAndAnswer();
+        line("Question: {$number}");
         $answer = prompt("Your answer");
 
         if (checkAnswer($answer, $result) !== true) {
