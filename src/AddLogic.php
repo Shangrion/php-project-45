@@ -19,7 +19,7 @@ function checkAnswer(string|int $answer, string|int $correct): bool
 }
 
 // Подведение итогов
-function checkCorrect(string|int $correctAnswers, string|int $name): void
+function checkCorrect(bool $correctAnswers, string $name): void
 {
     if ($correctAnswers === true) {
         line("Congratulations, {$name}!");

@@ -48,5 +48,5 @@ function runBrainProgression(): void
         }
     }
 
-    checkCorrect($correctAnswers, 3, $name);
+    checkCorrect($correctAnswers, $name);
 }
