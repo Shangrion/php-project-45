@@ -8,7 +8,7 @@ use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
 use function cli\line;
 
-function getTwoRandomDigits()
+function getTwoRandomDigits(): array
 {
     $digit1 = rand(0, 100);
     $digit2 = rand(0, 100);
