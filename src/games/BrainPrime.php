@@ -18,7 +18,7 @@ function chekPrime($digit): bool
     $userAnswer = true;
 
     if ($digit < 2) {
-    $userAnswer = false;
+        $userAnswer = false;
     } else {
         for ($i = 2; $i <= sqrt($digit); $i++) {
             if ($digit % $i == 0) {
