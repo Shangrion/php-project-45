@@ -8,11 +8,11 @@ use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
 use function cli\line;
 
-function runBrainEven()
+function runBrainEven(): void
 {
     $name = greetingUser();
     line('Answer "yes" if the number is even, otherwise answer "no".');
-    $correctAnswers = 0;
+    $correctAnswers = true;
 
     for ($i = 0; $i < 3; $i++) {
         $digit = rand(1, 100);
@@ -20,12 +20,11 @@ function runBrainEven()
         line("Question: {$digit}");
         $answer = prompt("Your answer");
 
-        if (checkAnswer($answer, $result) === true) {
-            $correctAnswers++;
-        } else {
+        if (checkAnswer($answer, $result) !== true) {
+            $correctAnswers = false;
             break;
         }
     }
 
-    checkCorrect($correctAnswers, 3, $name);
+    checkCorrect($correctAnswers, $name);
 }

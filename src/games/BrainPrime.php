@@ -8,7 +8,7 @@ use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
 use function cli\line;
 
-function getDigitChekPrime()
+function getDigitChekPrime(): array
 {
         $answer = "yes";
         $digit = rand(0, 100);
@@ -25,20 +25,19 @@ function getDigitChekPrime()
         return $result;
 }
 
-function runBrainPrime()
+function runBrainPrime(): void
 {
     $name = greetingUser();
     line('Answer "yes" if given number is prime. Otherwise answer "no".');
-    $correctAnswers = 0;
+    $correctAnswers = true;
 
     for ($i = 0; $i < 3; $i++) {
         [$digits, $result] = getDigitChekPrime();
         line("Question: {$digits}");
         $answer = prompt("Your answer");
 
-        if (checkAnswer($answer, $result) === true) {
-            $correctAnswers++;
-        } else {
+        if (checkAnswer($answer, $result) !== true) {
+            $correctAnswers = false;
             break;
         }
     }

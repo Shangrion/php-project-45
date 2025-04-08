@@ -29,19 +29,18 @@ function runBrainGcd()
 {
     $name = greetingUser();
     line('Find the greatest common divisor of given numbers.');
-    $correctAnswers = 0;
+    $correctAnswers = true;
 
     for ($i = 0; $i < 3; $i++) {
         [$digits, $result] = getGcdDigitsAndAnswer();
         line("Question: {$digits}");
         $answer = prompt("Your answer");
 
-        if (checkAnswer($answer, $result) === true) {
-            $correctAnswers++;
-        } else {
+        if (checkAnswer($answer, $result) !== true) {
+            $correctAnswers = false;
             break;
         }
     }
 
-    checkCorrect($correctAnswers, 3, $name);
+    checkCorrect($correctAnswers, $name);
 }

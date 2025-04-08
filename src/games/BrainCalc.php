@@ -8,7 +8,7 @@ use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
 use function cli\line;
 
-function getexpressionWithResult()
+function getexpressionWithResult(): array
 {
     $expressionWithResult = [];
     $digit1 = random_int(0, 100);
@@ -34,22 +34,21 @@ function getexpressionWithResult()
     return $expressionWithResult;
 }
 
-function runBrainCalc()
+function runBrainCalc(): void
 {
     $name = greetingUser();
     line('What is the result of the expression?');
-    $correctAnswers = 0;
+    $correctAnswers = true;
 
     for ($i = 0; $i < 3; $i++) {
         [$instance, $result] = getexpressionWithResult();
         line("Question: {$instance}");
         $answer = prompt("Your answer");
 
-        if (checkAnswer($answer, $result) === true) {
-            $correctAnswers++;
-        } else {
+        if (checkAnswer($answer, $result) !== true) {
+            $correctAnswers = false;
             break;
         }
     }
-    checkCorrect($correctAnswers, 3, $name);
+    checkCorrect($correctAnswers, $name);
 }

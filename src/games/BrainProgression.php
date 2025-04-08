@@ -8,7 +8,7 @@ use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
 use function cli\line;
 
-function getProgressDigitsAndAnswer()
+function getProgressDigitsAndAnswer(): array
 {
     $digitStart = rand(0, 100);
     $digitStep = rand(0, 5);
@@ -31,20 +31,19 @@ function getProgressDigitsAndAnswer()
         $result = [$strDigits, $missDigit];
         return $result;
 }
-function runBrainProgression()
+function runBrainProgression(): void
 {
     $name = greetingUser();
     line('What number is missing in the progression?');
-    $correctAnswers = 0;
+    $correctAnswers = true;
 
     for ($i = 0; $i < 3; $i++) {
         [$digits, $result] = getProgressDigitsAndAnswer();
         line("Question: {$digits}");
         $answer = prompt("Your answer");
 
-        if (checkAnswer($answer, $result) === true) {
-            $correctAnswers++;
-        } else {
+        if (checkAnswer($answer, $result) !== true) {
+            $correctAnswers = false;
             break;
         }
     }
