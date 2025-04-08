@@ -26,6 +26,6 @@ function runBrainEven()
             break;
         }
     }
-    
+
     checkCorrect($correctAnswers, 3, $name);
 }

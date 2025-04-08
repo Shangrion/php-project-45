@@ -1,6 +1,7 @@
 <?php
 
 namespace BrainGames\AddLogic;
+
 use function cli\line;
 
 ##ОБЩИЕ ФУНКЦИИ

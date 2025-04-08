@@ -42,6 +42,6 @@ function runBrainPrime()
             break;
         }
     }
-    
+
     checkCorrect($correctAnswers, 3, $name);
 }

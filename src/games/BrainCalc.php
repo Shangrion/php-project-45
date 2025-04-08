@@ -29,7 +29,7 @@ function getExpressionWithResult()
             $result = $digit1 * $digit2;
             break;
     }
-    
+
     $ExpressionWithResult[] = $result;
     return $ExpressionWithResult;
 }
