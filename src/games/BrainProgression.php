@@ -8,7 +8,7 @@ use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
 use function cli\line;
 
-function getProgressDigitsAndAnswer(): array
+function getProgressDigitsWithAnswer(): array
 {
     $numberStart = rand(0, 100);
     $step = rand(0, 5);
@@ -38,7 +38,7 @@ function runBrainProgression(): void
     $correctAnswers = true;
 
     for ($i = 0; $i < 3; $i++) {
-        [$number, $result] = getProgressDigitsAndAnswer();
+        [$number, $result] = getProgressDigitsWithAnswer();
         line("Question: {$number}");
         $answer = prompt("Your answer");
 

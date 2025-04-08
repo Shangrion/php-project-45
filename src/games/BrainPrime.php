@@ -13,7 +13,7 @@ function getDigit(): int
     $digit = rand(0, 100);
     return $digit;
 }
-function chekPrime($digit): bool
+function chekPrime(int $digit): bool
 {
     $userAnswer = true;
 
