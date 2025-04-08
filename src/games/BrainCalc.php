@@ -8,15 +8,15 @@ use function BrainGames\Cli\greetingUser;
 use function cli\prompt;
 use function cli\line;
 
-function getExpressionWithResult()
+function getexpressionWithResult()
 {
-    $ExpressionWithResult = [];
+    $expressionWithResult = [];
     $digit1 = random_int(0, 100);
     $digit2 = random_int(0, 100);
     $operators = ['*', '-', '+'];
     $operator = $operators[array_rand($operators)];
-    $Expression = "{$digit1} {$operator} {$digit2}";
-    $ExpressionWithResult[] = $Expression;
+    $expression = "{$digit1} {$operator} {$digit2}";
+    $expressionWithResult[] = $expression;
 
     switch ($operator) {
         case '+':
@@ -30,8 +30,8 @@ function getExpressionWithResult()
             break;
     }
 
-    $ExpressionWithResult[] = $result;
-    return $ExpressionWithResult;
+    $expressionWithResult[] = $result;
+    return $expressionWithResult;
 }
 
 function runBrainCalc()
@@ -41,7 +41,7 @@ function runBrainCalc()
     $correctAnswers = 0;
 
     for ($i = 0; $i < 3; $i++) {
-        [$instance, $result] = getExpressionWithResult();
+        [$instance, $result] = getexpressionWithResult();
         line("Question: {$instance}");
         $answer = prompt("Your answer");
 
