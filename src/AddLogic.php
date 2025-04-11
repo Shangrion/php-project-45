@@ -11,7 +11,7 @@ use function cli\prompt;
 // Проверка корректности ответа
 function checkAnswer(string|int $answer, string|int $correct): bool
 {
-    if ($answer != $correct) {
+    if ($answer !== $correct) {
         line("'{$answer}' is wrong answer ;(. Correct answer was '{$correct}'.");
         return false;
     } else {
