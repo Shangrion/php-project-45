@@ -2,11 +2,7 @@
 
 namespace BrainGames\BrainGcd;
 
-use function BrainGames\AddLogic\checkAnswer;
-use function BrainGames\AddLogic\checkCorrect;
-use function BrainGames\Cli\greetingUser;
-use function cli\prompt;
-use function cli\line;
+use function BrainGames\AddLogic\startGame;
 
 function getTwoRandomDigits(): array
 {
@@ -23,7 +19,7 @@ function convertDigitsToString(array $digits): string
     return "{$digits[0]} {$digits[1]}";
 }
 
-function getCorrectAnswer(array $digits): int
+function getGcdCorrectAnswer(array $digits): int
 {
     while ($digits[1] !== 0) {
         $temp = $digits[1];
@@ -34,24 +30,17 @@ function getCorrectAnswer(array $digits): int
     return $digits[0];
 }
 
+function getGcdExpressionWithResult(): array
+{
+    $digits = getTwoRandomDigits();
+    $expression = convertDigitsToString($digits);
+    $correctAnswer = getGcdCorrectAnswer($digits);
+    $expression[] = $correctAnswer;
+    return [$expression, $correctAnswer];
+}
+
 function runBrainGcd(): void
 {
-    $name = greetingUser();
-    line('Find the greatest common divisor of given numbers.');
-    $correctAnswers = true;
-
-    for ($i = 0; $i < 3; $i++) {
-        $digits = getTwoRandomDigits();
-        $correctAnswer = getCorrectAnswer($digits);
-        $givenNumbers = convertDigitsToString($digits);
-        line("Question: {$givenNumbers}");
-        $userAnswer = prompt("Your answer");
-
-        if (checkAnswer($userAnswer, $correctAnswer) !== true) {
-            $correctAnswers = false;
-            break;
-        }
-    }
-
-    checkCorrect($correctAnswers, $name);
+    $gameRuls = 'Find the greatest common divisor of given numbers.';
+    startGame($gameRuls, fn(): array => getGcdExpressionWithResult());
 }

@@ -2,51 +2,35 @@
 
 namespace BrainGames\BrainProgression;
 
-use function BrainGames\AddLogic\checkAnswer;
-use function BrainGames\AddLogic\checkCorrect;
-use function BrainGames\Cli\greetingUser;
-use function cli\prompt;
-use function cli\line;
+use function BrainGames\AddLogic\startGame;
 
-function getProgressDigitsWithAnswer(): array
+function getProgressionExpressionWithResult(): array
 {
-    $numberStart = rand(0, 100);
-    $step = rand(0, 5);
-    $allNumbers = [];
-
-    for ($i = 0; $i < 10; $i++) {
-        $allNumbers[] = $numberStart;
-        $numberStart += $step;
+    {
+        $numberStart = rand(0, 100);
+        $step = rand(0, 5);
+        $allNumbers = [];
+    
+        for ($i = 0; $i < 10; $i++) {
+            $allNumbers[] = $numberStart;
+            $numberStart += $step;
+        }
+    
+        $key = array_rand($allNumbers);
+        $missNumber = $allNumbers[$key];
+        $allNumbers[$key] = "..";
+        $listOfNumbers = "";
+    
+        foreach ($allNumbers as $digit) {
+            $listOfNumbers .= $digit . " ";
+        }
+    
+            return [$listOfNumbers, $missNumber];
     }
-
-    $key = array_rand($allNumbers);
-    $missNumber = $allNumbers[$key];
-    $allNumbers[$key] = "..";
-    $listOfNumbers = "";
-
-    foreach ($allNumbers as $digit) {
-        $listOfNumbers .= $digit . " ";
-    }
-
-        $result = [$listOfNumbers, $missNumber];
-        return $result;
 }
+
 function runBrainProgression(): void
 {
-    $name = greetingUser();
-    line('What number is missing in the progression?');
-    $correctAnswers = true;
-
-    for ($i = 0; $i < 3; $i++) {
-        [$number, $result] = getProgressDigitsWithAnswer();
-        line("Question: {$number}");
-        $answer = prompt("Your answer");
-
-        if (checkAnswer($answer, $result) !== true) {
-            $correctAnswers = false;
-            break;
-        }
-    }
-
-    checkCorrect($correctAnswers, $name);
+    $gameRuls = 'What number is missing in the progression?';
+    startGame($gameRuls, fn(): array => getProgressionExpressionWithResult());
 }

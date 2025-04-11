@@ -2,29 +2,19 @@
 
 namespace BrainGames\BrainEven;
 
-use function BrainGames\AddLogic\checkAnswer;
-use function BrainGames\AddLogic\checkCorrect;
-use function BrainGames\Cli\greetingUser;
-use function cli\prompt;
-use function cli\line;
+use function BrainGames\AddLogic\startGame;
+
+function getEvenExpressionWithResult(): array
+{
+    $expressionWithResult = [];
+    $digit = rand(1, 100);
+    $result = ($digit % 2 === 0) ? "yes" : "no";
+    return [$digit, $result];
+
+}
 
 function runBrainEven(): void
 {
-    $name = greetingUser();
-    line('Answer "yes" if the number is even, otherwise answer "no".');
-    $correctAnswers = true;
-
-    for ($i = 0; $i < 3; $i++) {
-        $digit = rand(1, 100);
-        $result = ($digit % 2 === 0) ? "yes" : "no";
-        line("Question: {$digit}");
-        $answer = prompt("Your answer");
-
-        if (checkAnswer($answer, $result) !== true) {
-            $correctAnswers = false;
-            break;
-        }
-    }
-
-    checkCorrect($correctAnswers, $name);
+    $gameRuls = 'Answer "yes" if the number is even, otherwise answer "no".';
+    startGame($gameRuls, fn(): array => getEvenExpressionWithResult());
 }

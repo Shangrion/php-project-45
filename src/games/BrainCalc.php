@@ -2,13 +2,9 @@
 
 namespace BrainGames\BrainCalc;
 
-use function BrainGames\AddLogic\checkAnswer;
-use function BrainGames\AddLogic\checkCorrect;
-use function BrainGames\Cli\greetingUser;
-use function cli\prompt;
-use function cli\line;
+use function BrainGames\AddLogic\startGame;
 
-function getexpressionWithResult(): array
+function getCalcExpressionWithResult(): array
 {
     $expressionWithResult = [];
     $digit1 = random_int(0, 100);
@@ -16,7 +12,6 @@ function getexpressionWithResult(): array
     $operators = ['*', '-', '+'];
     $operator = $operators[array_rand($operators)];
     $expression = "{$digit1} {$operator} {$digit2}";
-    $expressionWithResult[] = $expression;
 
     switch ($operator) {
         case '+':
@@ -30,25 +25,11 @@ function getexpressionWithResult(): array
             break;
     }
 
-    $expressionWithResult[] = $result;
-    return $expressionWithResult;
+    return [$expression, $result];
 }
 
 function runBrainCalc(): void
 {
-    $name = greetingUser();
-    line('What is the result of the expression?');
-    $correctAnswers = true;
-
-    for ($i = 0; $i < 3; $i++) {
-        [$instance, $result] = getexpressionWithResult();
-        line("Question: {$instance}");
-        $answer = prompt("Your answer");
-
-        if (checkAnswer($answer, $result) !== true) {
-            $correctAnswers = false;
-            break;
-        }
-    }
-    checkCorrect($correctAnswers, $name);
+    $gameRuls = 'What is the result of the expression?';
+    startGame($gameRuls, fn(): array => getCalcExpressionWithResult());
 }

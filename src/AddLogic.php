@@ -3,6 +3,8 @@
 namespace BrainGames\AddLogic;
 
 use function cli\line;
+use function BrainGames\Cli\greetingUser;
+use function cli\prompt;
 
 ##ОБЩИЕ ФУНКЦИИ
 
@@ -26,4 +28,26 @@ function checkCorrect(bool $correctAnswers, string $name): void
     } else {
         line("Let's try again, {$name}!");
     }
+}
+
+//Запуск игры(Общение с игроком||обработка вопросов и ответов)
+function startGame(string $gameRuls, callable $expressionWithResult): void
+{
+    $name = greetingUser();
+    line("{$gameRuls}");
+
+    $correctAnswers = true;
+    $numberОfQuestions = 3;
+
+    for ($i = 0; $i < $numberОfQuestions; $i++) {
+        [$question, $result] = $expressionWithResult();
+        line("Question: {$question}");
+        $answer = prompt("Your answer");
+
+        if (checkAnswer($answer, $result) !== true) {
+            $correctAnswers = false;
+            break;
+        }
+    }
+    checkCorrect($correctAnswers, $name);
 }
