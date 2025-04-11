@@ -37,9 +37,9 @@ function startGame(string $gameRuls, callable $expressionWithResult): void
     line("{$gameRuls}");
 
     $correctAnswers = true;
-    $numberОfQuestions = 3;
+    $numberOfQuestions = 3;
 
-    for ($i = 0; $i < $numberОfQuestions; $i++) {
+    for ($i = 0; $i < $numberOfQuestions; $i++) {
         [$question, $result] = $expressionWithResult();
         line("Question: {$question}");
         $answer = prompt("Your answer");
