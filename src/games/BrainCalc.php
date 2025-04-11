@@ -6,7 +6,6 @@ use function BrainGames\AddLogic\startGame;
 
 function getCalcExpressionWithResult(): array
 {
-    $expressionWithResult = [];
     $digit1 = random_int(0, 100);
     $digit2 = random_int(0, 100);
     $operators = ['*', '-', '+'];
@@ -25,7 +24,7 @@ function getCalcExpressionWithResult(): array
             break;
     }
 
-    return [$expression, $result];
+    return [$expression, strval($result)];
 }
 
 function runBrainCalc(): void

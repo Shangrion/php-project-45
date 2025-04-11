@@ -24,7 +24,7 @@ function getProgressionExpressionWithResult(): array
         $listOfNumbers .= $digit . " ";
     }
 
-    return [$listOfNumbers, $missNumber];
+    return [$listOfNumbers, strval($missNumber)];
 }
 
 function runBrainProgression(): void
