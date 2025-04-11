@@ -10,7 +10,6 @@ function getEvenExpressionWithResult(): array
     $digit = rand(1, 100);
     $result = ($digit % 2 === 0) ? "yes" : "no";
     return [$digit, $result];
-
 }
 
 function runBrainEven(): void
