@@ -19,7 +19,7 @@ function convertDigitsToString(array $digits): string
     return "{$digits[0]} {$digits[1]}";
 }
 
-function getGcdCorrectAnswer(array $digits): int
+function getCorrectAnswer(array $digits): int
 {
     while ($digits[1] !== 0) {
         $temp = $digits[1];
@@ -34,8 +34,7 @@ function getGcdExpressionWithResult(): array
 {
     $digits = getTwoRandomDigits();
     $expression = convertDigitsToString($digits);
-    $correctAnswer = getGcdCorrectAnswer($digits);
-    $expression[] = $correctAnswer;
+    $correctAnswer = getCorrectAnswer($digits);
     return [$expression, $correctAnswer];
 }
 
